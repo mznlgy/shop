@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper	namespace="dao.CartDao">
+	<!-- 根据用户查询购物车 -->
+	<select id="selectCartByUser" parameterType="Integer" resultType="Map">
+		select sc.count,sc.shopping_id,pr.* from shoppingcart sc join product pr
+		on sc.product_id=pr.product_id where sc.user_id = #{user_id}
+	</select>
+	<!-- 添加购物车 -->
+	<insert id="addCart" parameterType="Map">
+		insert into shoppingcart(user_id,count,product_id) values(#{user_id},#{count},#{product_id})
+	</insert>
+	<!-- 查看商品是否存在购物车 -->
+	<select id="isExistedCart" parameterType="Map" resultType="Map">
+		select * from shoppingcart where user_id = #{user_id} and product_id = #{product_id}
+	</select>
+	<!--更新购物车信息 -->
+	<update id="updateCart" parameterType="Map">
+	 	update shoppingcart set count = count+#{count} where user_id = #{user_id} and product_id = #{product_id}
+	</update>
+	<!-- 移除商品 -->
+	<delete id="deleteCart" parameterType="Map">
+		delete from shoppingcart where user_id = #{user_id} and product_id = #{product_id}
+	</delete>
+	<!-- 清空购物车 -->
+	<delete id="clearCart" parameterType="Integer">
+		delete from shoppingcart where user_id = #{user_id}
+	</delete>
+</mapper>

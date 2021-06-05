@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper	namespace="dao.OrderDao">
+	<!-- 生成订单 -->
+	<insert id="addOrder" parameterType="pojo.Order"  keyProperty="orderid" useGeneratedKeys="true">
+		insert into orders(user_id,amount,status,time) values(#{user_id},#{amount},0,now())
+	</insert>
+	<!-- 用户id查询订单 -->
+	<select id="selectAllOrderByUserId"  parameterType="Integer" resultType="Map">
+		select * from orders where user_id = #{user_id}
+	</select>
+	<!-- 生成订单详情 -->
+	<insert id="addOrderDetail" parameterType="map">
+		insert into ordersdetail(orderid,product_id,count) 
+		select #{orderid},product_id,count from shoppingcart where user_id = #{user_id}
+	</insert>
+	<!-- 根据订单id查询每一个订单的所有商品 -->
+	<select id="selectOrderDetailByOrderId" parameterType="Integer" resultType="Map">
+	select * from product where product_id in
+	(select ordersdetail.product_id from orders  join ordersdetail
+		on orders.orderid = ordersdetail.orderid where ordersdetail.orderid=#{orderid})
+	</select>
+	<!-- 根据订单id查询每一个订单的所有商品的数量 -->
+	<select id="selectProductCount" parameterType="Integer" resultType="Map">
+	select ordersdetail.product_id,ordersdetail.count,orders.status from orders  join ordersdetail
+		on orders.orderid = ordersdetail.orderid where ordersdetail.orderid=#{orderid}
+	</select>
+	<!-- 支付订单 -->
+	<update id="payOrder" parameterType="Integer">
+		update orders set status = 1 where orderid  = #{orderid}
+	</update>
+	<!-- 根据id查询订单概况 -->
+	<select id="selectOrdByOrderid" parameterType="Integer" resultType="pojo.Order">
+		select * from orders where orderid = #{orderid}
+	</select>
+	<!-- 更改订单状态 -->
+	<update id="updateOrderStatus" parameterType="Map">
+		update orders set status = #{status} where  orderid = #{orderid}
+	</update>
+	<!-- 删除订单 -->
+	<delete id="deleteOrderByOrderid" parameterType="Integer">
+		delete from orders where orderid = #{orderid}
+	</delete>
+</mapper>

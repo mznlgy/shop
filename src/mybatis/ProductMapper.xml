@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper	namespace="dao.ProductDao">
+	<!-- 根据id查询商品 -->
+	<select id="selectProductById" parameterType="Integer" resultType="pojo.Product">
+		select * from product where product_id = #{product_id}
+	</select>
+	<!-- 分页查询 -->
+	<select id="selectProductByWord" parameterType="Map" resultType="Map">
+		select * from product  
+		where product_name like concat('%',#{product_name},'%')
+		limit #{startpage},20
+	</select>
+	<!-- 模糊查询所有商品数量 -->
+	<select id="selectAllProductByWord" parameterType="Map" resultType="Integer">
+	select count(*) from product where 1=1 
+		<if test="product_name != null">
+		and product_name like concat('%',#{product_name},'%')
+		</if>
+	</select>
+	<!-- 名称查询商品 -->
+	<select id="selectProductByName" parameterType="Map" resultType="Map">
+		select * from product  
+		where product_name like concat('%',#{product_name},'%')
+		limit #{startpage},10
+	</select>
+	<!-- 根据id删除商品 -->
+	<delete id="deleteProduct" parameterType="Integer">
+		delete from product where product_id = #{product_id}
+	</delete>
+	<!-- 修改商品 -->
+	<update id="updateProduct" parameterType="pojo.Product">
+		update product set product_name = #{product_name},price = #{price} 
+		where product_id = #{product_id}
+	</update>
+	<!-- 添加商品 -->
+	<insert id="addproduct" parameterType="Map">
+		insert into product(product_name,price,imgpath) values(#{product_name},#{price},#{imgpath})
+	</insert>
+</mapper>

@@ -1,0 +1,77 @@
+@charset "UTF-8";
+.forgetpwd{
+	width:200px;
+}
+*{
+	margin: 0px;
+	padding: 0px;
+	box-sizing:border-box;
+}
+.reg{
+	border: 0; 
+    width: 150px; 
+    height: 30px;
+    margin-top: 18px; 
+    font-size: 18px;
+    color: white; */
+    border-radius: 25px;
+	background-image:linear-gradient(to right,#FFD700 0%,#FFA500 100%); 
+}
+body{
+    background: url("../../images/register_back.jpg") no-repeat center;
+	background-size: 100% 100%; 
+    background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+.rg_layout{
+    width: 900px;
+    height: 500px;
+    border: 8px solid #eeeeee;
+    background-color: rgba(255, 255, 255, 0.8);
+    margin: auto;
+    margin-top: 10%;
+}
+.rg_left{
+    float: left;
+    margin: 15px;
+	width:120px;
+	font-size:14px;
+}
+.rg_left p:first-child{
+	color: #fed026;
+	size: 20px;
+}
+.rg_left p:last-child{
+	color: #a6a6a6;
+	size: 20px;
+}
+.rg_center{
+	width: 450px;
+	float: left;
+}
+.rg_right{
+	float: right;
+}
+.rg_right p:first-child{
+	font-size: 15px;
+}
+.rg_right p a{
+	color: pink;
+}
+.td_left{
+	width: 120px;
+	text-align: right;
+	height: 45px;
+	color: #a6a6a6;
+}
+.td_right{
+padding-left: 50px;
+color: #a6a6a6;
+	}
+.inputinfo{
+	width: 210px;
+	height: 30px;
+	border: 1px solid #a6a6a6;
+	border-radius: 5px;
+	padding-left: 10px;
+}

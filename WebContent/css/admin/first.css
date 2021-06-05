@@ -1,0 +1,133 @@
+@charset "UTF-8";
+#table{
+		adding-top: 70px;
+	}
+.td_do1{
+		padding-top: 20px;
+		padding-bottom: 20px;
+		background:#E6E6FA;
+		font-size: 15px;
+}
+.td_do{
+		text-decoration: none;
+		color: black;
+		font-size:20px;
+			
+}
+		.td_do:hover{
+			color: red;
+		}
+	.header_con{
+    height:29px;
+    background-color: #f7f7f7;
+    margin-right:10%;
+}
+	.header{
+    width:100%;
+    height:29px;
+	background:rgba(255, 255, 255, 0.9);
+   
+}
+	.welcome{
+    font:12px/29px 'Microsoft YaHei UI';
+    float: left;
+}
+	.user_login{
+	height: 29px;
+	line-height: 29px;
+	float: right;
+}
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+		.reg{
+			border: 0; 
+    	width: 150px; 
+    	height: 30px;
+    	margin-top: 18px; 
+    	font-size: 18px;
+    	color: white; 
+    	border-radius: 25px; 
+		background:  	#FFD700;
+			}
+body{
+	background-size: 100% 100%; 
+   	background-repeat: no-repeat; 
+	background-attachment: fixed;
+	background: rgba(255, 255, 255, 0.9);
+        }
+        .rg_layout{
+            width: 900px;
+            height: 500px;
+            border: 8px solid #eeeeee;
+            background-color: rgba(255, 255, 255, 0.8);
+            margin: auto;
+            margin-top: 60px;
+        }
+        .rg_left{
+            float: left;
+            margin: 15px;
+        }
+        .rg_left p:first-child{
+            color: #fed026;
+            size: 20px;
+        }
+        .rg_left p:last-child{
+            color: #a6a6a6;
+            size: 20px;
+        }
+        .rg_center{
+            width: auto;
+            text-align: center;
+			padding-left: 350px;
+        }
+        .rg_right{
+            float: right;
+        }
+        .rg_right p:first-child{
+            font-size: 15px;
+        }
+        .rg_right p a{
+            color: pink;
+        }
+        .td_left{
+            width: 100px;
+            text-align: right;
+            height: 45px;
+            color: #a6a6a6;
+        }
+        .td_right{
+            padding-left: 50px;
+            color: #a6a6a6;
+        }
+        #username,#password,#email,#question,#answer{
+            width: 251px;
+            height: 32px;
+            border: 1px solid #a6a6a6;
+            border-radius: 5px;
+            padding-left: 10px;
+
+        }
+        #checkcode{
+            width: 150px;
+            height: 32px;
+            border: 1px solid #a6a6a6;
+            border-radius: 5px;
+            padding-left: 10px;
+        }
+        #img_check{
+            height: 32px;
+            vertical-align: middle;
+        }
+        #btn_sub{
+            width: 150px;
+            height: 40px;
+            background-color: #ffd026;
+            border: 1px solid #a6a6a6;
+        }
+        .logo{
+            width: 200px;
+            height: 70px;
+        }
