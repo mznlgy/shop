@@ -48,6 +48,7 @@ function suborders(){
 	document.getElementById("subprice").value = parseFloat(document.getElementById("totalprice").innerHTML).toFixed(2);
 }
 </script>
+<%int i = 0;%>
 <body onload="setTotal();">
 	<!-- 头部信息 -->
 	<div class="header_con">
@@ -80,10 +81,10 @@ function suborders(){
 						<td width=5% style="font-size:17px;">&nbsp;&nbsp;</td>
 						</tr></table>
 				</div>
+				
 				<div class="goods" style="height:auto;">
 				<table id="tab">
-					<%int i=0;%>
-					 <c:forEach var="product" items="${productlist}">
+				<c:forEach var="product" items="${productlist}">
 					<tr>
 						<td width=70% class="td_probox"><image id="proimg" src="${product.imgpath}"/><em style="font-size:15px;">${product.product_name}</em></td>
 						<td width=10%><h2 class="price">${product.price}</h2></td>

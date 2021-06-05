@@ -43,9 +43,9 @@
 		 <ul>
 		<c:forEach var="product" items="${searchlist}">
           <li>   
-            <div class="sfz_01_34"><a href="#"><img src="${product.imgpath}" class="img_pro"></a>
+            <div class="sfz_01_34"><a href="${pageContext.request.contextPath}/before/product?product_id=${product.product_id}"><img src="${product.imgpath}" class="img_pro"></a>
             <p class="price">￥${product.price}</p>
-            <p ><a class="name" href="<?php echo $url?>">${product.product_name}</a></p>
+            <p ><a class="name" href="${pageContext.request.contextPath}/before/product?product_id=${product.product_id}">${product.product_name}</a></p>
             </div>
         </li> 
 	</c:forEach>
